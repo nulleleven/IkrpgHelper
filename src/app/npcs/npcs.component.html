@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Actions</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let npc of npcs">
+            <td>
+                <button class="btn btn-primary">View</button>
+                <button class="btn btn-success">Assign</button>
+                <button class="btn btn-info">Edit</button>
+                <button class="btn btn-danger">Delete</button></td>
+            <td>{{npc.name}}</td>
+            <td>{{npc.type}}</td>
+        </tr>
+       </tbody>
+  </table>

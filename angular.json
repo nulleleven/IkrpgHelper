@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "IkrpgHelper"
+    }
+  },
+  "defaultProject": "IkrpgHelper",
+  "cli": {
+    "analytics": "01695329-2fc9-4d05-afb4-51b91d898805"
+  }
 }
