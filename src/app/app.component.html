@@ -13,8 +13,6 @@
     </div>
 </nav>
 
-<button class="btn btn-warning">New</button>
-
 <div *ngIf="page === 'Encounters'; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock><encounters></encounters></ng-template>
 <ng-template #elseBlock><npcs></npcs></ng-template>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { Encounter } from '../models/encounter.model';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'encounters',
@@ -6,8 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./encounters.component.css']
 })
 export class EncountersComponent {
-  encounters = [
-    { title: "Jungle trail",
-      npcs: [] }    
-  ];  
+  constructor(private modalService: BsModalService) {}
+  encounters: Encounter[] = [];
+  newLabel = "Encounter"
+ 
+  modalRef: BsModalRef;
+  config = {
+    animated: true
+  };
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  add(encounter) {
+    this.encounters.push(new Encounter(encounter.value));
+  }
 }

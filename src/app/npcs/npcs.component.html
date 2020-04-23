@@ -1,3 +1,5 @@
+<button class="btn btn-warning" (click)="openModal(template)">New</button>
+
 <table class="table">
     <thead>
       <tr>
@@ -14,7 +16,22 @@
                 <button class="btn btn-info">Edit</button>
                 <button class="btn btn-danger">Delete</button></td>
             <td>{{npc.name}}</td>
-            <td>{{npc.type}}</td>
         </tr>
-       </tbody>
-  </table>
+      </tbody>
+</table>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New {{newLabel}} Entry</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+        <label for="name">Name</label>
+        <input aria-describedby="title" type="text" #newEntry/>
+    </div>
+  </div>
+  <button class="btn btn-success" (click)="add(newEntry)">Save</button>
+</ng-template>
