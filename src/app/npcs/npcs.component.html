@@ -5,7 +5,11 @@
       <tr>
         <th scope="col">Actions</th>
         <th scope="col">Name</th>
-        <th scope="col">Type</th>
+        <th scope="col">Spd</th>
+        <th scope="col">Mat</th>
+        <th scope="col">Rat</th>
+        <th scope="col">Def</th>
+        <th scope="col">Arm</th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +20,7 @@
                 <button class="btn btn-info">Edit</button>
                 <button class="btn btn-danger">Delete</button></td>
             <td>{{npc.name}}</td>
+            <td></td>
         </tr>
       </tbody>
 </table>
@@ -34,4 +39,32 @@
     </div>
   </div>
   <button class="btn btn-success" (click)="add(newEntry)">Save</button>
+</ng-template>
+
+<ng-template #viewTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{this.npc.Name}}</h4>
+  </div>
+  <div class="modal-body">
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Actions</th>
+            <th scope="col">Spd</th>
+            <th scope="col">Mat</th>
+            <th scope="col">Rat</th>
+            <th scope="col">Def</th>
+            <th scope="col">Arm</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let npc of this.encounter.Npcs">
+              <td><button class="btn btn-danger" (click)="removeNpc(encounter, npc)">Delete</button></td>
+              <td>{{npc.Name}}</td>
+            </tr>
+           </tbody>
+      </table>
+    </div>
+  </div>
 </ng-template>

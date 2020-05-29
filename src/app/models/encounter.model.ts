@@ -1,10 +1,11 @@
 import { NPC } from './npc.model';
 
 export class Encounter {
-    name: string;
-    npcs: NPC[];
+    Name: string;
+    Npcs: NPC[];
 
     constructor(name){
-        this.name = name;
+        this.Name = name,
+        this.Npcs = [];
     }
 }

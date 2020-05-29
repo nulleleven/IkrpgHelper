@@ -13,7 +13,7 @@
                 <button class="btn btn-primary" (click)="viewModal(viewTemplate, encounter)">View</button>
                 <button class="btn btn-info" (click)="editModal(editTemplate, encounter)">Edit</button>
                 <button class="btn btn-danger" (click)="deleteModal(deleteTemplate, encounter)">Delete</button></td>
-            <td>{{encounter.name}}</td>
+            <td>{{encounter.Name}}</td>
         </tr>
        </tbody>
   </table>
@@ -33,19 +33,21 @@
 
   <ng-template #viewTemplate>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">{{this.encounter.name}}</h4>
+      <h4 class="modal-title pull-left">{{this.encounter.Name}}</h4>
     </div>
     <div class="modal-body">
       <div>
         <table class="table">
           <thead>
             <tr>
+              <th scope="col">Actions</th>
               <th scope="col">NPC Name</th>
             </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let npc of this.encounter.npcs">
-                  <td>{{npc.name}}</td>
+              <tr *ngFor="let npc of this.encounter.Npcs">
+                <td><button class="btn btn-danger" (click)="removeNpc(encounter, npc)">Delete</button></td>
+                <td>{{npc.Name}}</td>
               </tr>
              </tbody>
         </table>
@@ -62,23 +64,27 @@
         <table class="table">
           <thead>
             <tr>
+              <th scope="col">Actions</th>
               <th scope="col">NPC Name</th>
             </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let npc of this.encounter.npcs">
-                  <td>{{npc.name}}</td>
+              <tr *ngFor="let npc of encounter.Npcs">
+                <td><button class="btn btn-danger" (click)="removeNpc(encounter, npc)">Delete</button></td>
+                <td>{{npc.Name}}</td>
               </tr>
              </tbody>
         </table>
+        <label for="name">Add</label>
+        <input aria-describedby="title" value="{{npc.value}}" type="text" #npc/>
+        <button class="btn btn-success" (click)="addNpc(encounter, npc)">Save</button>
       </div>
     </div>
-    <button class="btn btn-success" (click)="update(this.encounter)">Save</button>
   </ng-template>
   
   <ng-template #deleteTemplate>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Delete {{this.encounter.name}}?</h4>
+      <h4 class="modal-title pull-left">Delete {{this.encounter.Name}}?</h4>
     </div>
     <div class="modal-body">
       <div>
