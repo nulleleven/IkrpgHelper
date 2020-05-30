@@ -10,8 +10,8 @@ import { NPC } from '../models/npc.model';
 })
 export class EncountersComponent {
   constructor(private modalService: BsModalService) {}
-  encounters: Encounter[] = [];
   newLabel = "Encounter";
+  encounters: Encounter[] = [];
   encounter: Encounter;
   npc: string;
  

@@ -9,8 +9,9 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class NpcsComponent {
   constructor(private modalService: BsModalService) {}
+  newLabel = "NPC";
   npcs: NPC[] = [];
-  newLabel = "NPC"
+  npc: NPC;
  
   modalRef: BsModalRef;
   config = {
@@ -24,5 +25,33 @@ export class NpcsComponent {
   add(npc) {
     console.log(npc);
     this.npcs.push(new NPC(npc.value));
+    this.modalRef.hide();
+  }
+  
+  editModal(template: TemplateRef<any>, npc: NPC) {
+    this.npc = npc;
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  deleteModal(template: TemplateRef<any>, npc: NPC) {
+    this.npc = npc;
+    this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  viewModal(viewTemplate: TemplateRef<any>, npc: NPC) {
+    this.npc = npc;
+    this.modalRef = this.modalService.show(viewTemplate, this.config);
+  }
+
+  update(npc: NPC) {
+    var index = this.npcs.indexOf(npc);
+    this.npcs[index] = npc;
+    this.modalRef.hide();
+  }
+
+  removeNpc(npc: NPC) {
+    var index = this.npcs.indexOf(npc);
+    this.npcs.splice(index);
+    this.modalRef.hide();
   }
 }
